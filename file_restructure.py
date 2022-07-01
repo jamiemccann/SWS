@@ -4,6 +4,7 @@ This script generates re-organises the output of QM2MFAST to allow for
 quick useage of MFAST by organising data in folders of stations, as opposed to folders of events.
 The structure will change
 
+Needs to be run in the same directory as the event-station folders
 
 Initial:
 
