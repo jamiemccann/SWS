@@ -5,7 +5,7 @@ import glob
 
 def run_all_stations(dir_path):
     """
-    Fucntion which run do_station_mfm in on all stations directories within a specified directory.
+    Function which runs do_station_mfm in on all stations directories within a specified directory.
     This function will only work if the directories are in the required structure. This structure is
     Station > Event-station component files
 
