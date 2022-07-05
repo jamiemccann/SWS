@@ -38,9 +38,9 @@ def restructure(pat):
     """
 
     #Collect all files in the directory created into a single list 
-    all_files = [filename for filename in glob.glob(f'{pat}**/*.e', recursive=True)]
-    all_files.extend([filename for filename in glob.glob(f'{pat}**/*.n', recursive=True)])
-    all_files.extend([filename for filename in glob.glob(f'{pat}**/*.z', recursive=True)])
+    all_files = [filename for filename in glob.glob(f'{pat}/**/*.e', recursive=True)]
+    all_files.extend([filename for filename in glob.glob(f'{pat}/**/*.n', recursive=True)])
+    all_files.extend([filename for filename in glob.glob(f'{pat}/**/*.z', recursive=True)])
 
 
 
@@ -83,7 +83,7 @@ def restructure(pat):
     for file in full_paths:
         try:
             source_path = file
-            destination_path = file.split('/')[1] + '/'
+            destination_path = file.split('/')[7] + '/'
             shutil.copy(source_path, destination_path)
         except:
             pass
@@ -94,9 +94,9 @@ def restructure(pat):
     #finally we want to get rid of the old data 
     old_folders = []
     for i in os.listdir():
-        if len(i) == 17: #all of these folder names will have 17 characters, stations will never have this many characters
+        if len(i) == 17 and i[0] ==2: #all of these folder names will have 17 characters, stations will never have this many characters
             old_folders.append(i)
 
-
+    
     for folder in old_folders:
         shutil.rmtree(folder)
