@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 This script generates re-organises the output of QM2MFAST to allow for 
 quick useage of MFAST by organising data in folders of stations, as opposed to folders of events.
-The structure will change
+
 
 
 Initial:
@@ -93,10 +94,11 @@ def restructure(pat):
 
     #finally we want to get rid of the old data 
     old_folders = []
-    for i in os.listdir():
-        if len(i) == 17 and i[0] ==2: #all of these folder names will have 17 characters, stations will never have this many characters
+    for i in glob.glob(f'{pat}/**'):
+        if i.split('/')[-1][0]== '2': #all of these folder names will have begin with 2, as they are from the year 2000 beyond
             old_folders.append(i)
-
+    print(old_folders)
     
+
     for folder in old_folders:
         shutil.rmtree(folder)
