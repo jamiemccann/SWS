@@ -89,7 +89,7 @@ def append_inc_ang(dataf, model):
     frames = []
     
     for _,row in data.iterrows():
-        angin,tak,x,y = calculate_incident_angle(row,vmod)
+        angin,tak,x,y = calculate_incident_angle(row,model)
         new_frame = [angin,tak, row['1event']]
         frames.append(new_frame)
 
