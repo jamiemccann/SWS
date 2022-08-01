@@ -2,14 +2,8 @@ import glob
 import pandas as pd
 
 
-DIRECTORY_PATH = 
+all_res_path = [filename for filename in glob.glob('/raid2/jam247/mfast/sample_data/Test_6/**/*.fb1**.res')]
 
-# --- Edit path for chosen data directory ---
-all_res_path = [filename for filename in glob.glob(f'{DIRECTORY_PATH}/**/*.fb1**.res')]
-
-
-
-# --- Create dataframe of all event-station pairs ---
 frames = []
 
 for file_path in all_res_path:
@@ -17,13 +11,19 @@ for file_path in all_res_path:
     frames.append(df)
 
 result = pd.concat(frames)
-
-
-
-# --- Edit path for chosen data directory ---
-with open("path/raypaths.xy", "w") as f:
+stations = pd.read_csv("/home/tebw2/STATION_FILES/QMigrate/ASKJA_stns_QM_2007-2020_ALL.txt")
+    
+    
+with open("/raid2/jam247/JM_Tutorials/GMT_Tutorials/BSM_Poster/askja_raypaths.xy", "w") as f:
     for i, event in result.iterrows():
         print(">", file=f)
         print(event["evlo"], event["evla"], file=f)
         print(event["slon"], event["slat"], file=f)
-    print(">", file=f)
+    print(">", file=f)    
+    
+    
+    
+    
+    
+    
+    
