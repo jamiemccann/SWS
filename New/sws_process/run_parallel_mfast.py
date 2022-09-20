@@ -8,6 +8,12 @@ import os
 
 
 
+
+#Define the list of stations you want to run
+
+stations = ''
+
+
 #Function
 def run_station(station_path):
     """
