@@ -11,7 +11,7 @@ import os
 
 #Define the list of stations you want to run
 
-stations = ''
+stations = []
 
 
 #Function
